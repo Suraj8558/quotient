@@ -9,7 +9,7 @@ import {
   Card,
   CardContent,
 } from "@mui/material";
-import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+// import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import NewReleasesIcon from "@mui/icons-material/NewReleases";
 import PendingIcon from "@mui/icons-material/Pending";
@@ -27,19 +27,19 @@ const statusData = [
   { label: "Cancelled", value: 50, icon: <CancelIcon /> },
 ];
 
-const pieData = [
-  { name: "New", value: 50, color: "#f87171" },
-  { name: "Pending", value: 50, color: "#60a5fa" },
-  { name: "Dispatched", value: 50, color: "#a78bfa" },
-  { name: "Delivered", value: 50, color: "#4ade80" },
-  { name: "Cancelled", value: 50, color: "#facc15" },
-];
+// const pieData = [
+//   { name: "New", value: 50, color: "#f87171" },
+//   { name: "Pending", value: 50, color: "#60a5fa" },
+//   { name: "Dispatched", value: 50, color: "#a78bfa" },
+//   { name: "Delivered", value: 50, color: "#4ade80" },
+//   { name: "Cancelled", value: 50, color: "#facc15" },
+// ];
 
 export default function OrderStatusChart() {
   const [category, setCategory] = useState("All Categories");
   const [year, setYear] = useState("2023");
 
-  const total = pieData.reduce((acc, cur) => acc + cur.value, 0);
+  // const total = pieData.reduce((acc, cur) => acc + cur.value, 0);
 
   return (
     <Card
