@@ -41,10 +41,10 @@ export default function BusinessDetailsForm() {
   return (
     <Box
       sx={{
-        p: 3,
+        p: 2,
         borderRadius: 4,
         backgroundColor: 'background.paper',
-        maxWidth: 400,
+        maxWidth: 390,
         mx: 'auto',
         display: 'flex',
         flexDirection: 'column',
@@ -53,27 +53,69 @@ export default function BusinessDetailsForm() {
       }}
     >
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Typography variant="h6" fontWeight={600}>
+        <Typography variant="body1" fontWeight={600}>
           Business Details
         </Typography>
-        <Button startIcon={<SaveIcon />} variant="text" color="success">
+        <Button startIcon={<SaveIcon />} variant="text" sx={{ color: '#22C55E' }}>
           Save & Close
         </Button>
       </Box>
 
-      <TextField label="Account Name" fullWidth defaultValue="TRUCK GEAR" />
-      <TextField label="Email" fullWidth defaultValue="Jillali@Onechanneladmin.Com" />
 
-      <Typography variant="subtitle2" mt={2}>
+        <Box sx={{
+          borderBottom: '1px solid #0E253C1A',
+          pb: 1.5,
+        }}>
+          <Typography variant="caption" fontWeight={500} mb={0.5}>
+            Account Name
+          </Typography>
+          <TextField
+            fullWidth
+            defaultValue="TRUCK GEAR"
+            variant="outlined"
+            placeholder="Enter account name"
+          />
+        </Box>
+
+        <Box sx={{
+          borderBottom: '1px solid #0E253C1A',
+          pb: 1.5,
+        }}>
+          <Typography variant="caption" fontWeight={500} mb={0.5}>
+            Email
+          </Typography>
+          <TextField
+            fullWidth
+            defaultValue="Jillali@Onechanneladmin.Com"
+            variant="outlined"
+            placeholder="Enter email"
+          />
+        </Box>
+
+    <Box sx={{display:'flex', justifyContent: 'space-between', alignItems: 'center', gap: 2}}> 
+      <Typography variant="caption">
         Phone Number
       </Typography>
+      <IconButton sx={{color: 'primary.light'}} onClick={handleAddPhone}>
+        <AddIcon />
+      </IconButton>      
+    </Box>
+
       {phones.map((phone, index) => (
         <Box key={index} display="flex" gap={1} alignItems="center">
           <Select
             size="small"
             value={phone.country}
             onChange={(e) => handlePhoneChange(index, 'country', e.target.value)}
-            sx={{ minWidth: 80 }}
+           sx={{
+              '& input::placeholder': {
+                color: 'primary.main',
+                opacity: 1,
+              },
+              '& .MuiInputBase-input': {
+                paddingRight: '0',
+              },
+            }}
           >
             {countries.map((c) => (
               <MenuItem key={c.code} value={c.code}>
@@ -83,74 +125,168 @@ export default function BusinessDetailsForm() {
           </Select>
           <TextField
             size="small"
+            variant="outlined"
             placeholder="+1 344 434 4455"
             value={phone.number}
             onChange={(e) => handlePhoneChange(index, 'number', e.target.value)}
             fullWidth
+             sx={{
+              '& input::placeholder': {
+                color: 'primary.main',
+                opacity: 1,
+              },
+              '& .MuiInputBase-input': {
+                paddingRight: '0',
+              },
+            }}
           />
-          <IconButton color="error" onClick={() => handleRemovePhone(index)}>
-            <DeleteOutlineIcon />
+          <IconButton color="error"
+          sx={{
+            fontSize: 12,
+             border:  '1px solid #DC3545',
+             padding: "10px 16px", 
+             color: '#DC3545',
+             borderRadius: 3,
+          }} 
+          onClick={() => handleRemovePhone(index)}>
+            Remove
           </IconButton>
         </Box>
       ))}
-      <Box>
-        <IconButton color="primary" onClick={handleAddPhone}>
-          <AddIcon />
-        </IconButton>
-      </Box>
 
-      <Select fullWidth size="small" defaultValue="Suchithkumar@Onechanneladmin.Com">
-        <MenuItem value="Suchithkumar@Onechanneladmin.Com">
-          Suchithkumar@Onechanneladmin.Com
-        </MenuItem>
-      </Select>
+        <Box sx={{
+          borderBottom: '1px solid #0E253C1A',
+          pb: 1.5,
+        }}>
+          <Typography variant="caption" fontWeight={500} mb={0.5}>
+            Contact Owner
+          </Typography>
+            <Select fullWidth size="small" defaultValue="Suchithkumar@Onechanneladmin.Com">
+            <MenuItem value="Suchithkumar@Onechanneladmin.Com">
+              Suchithkumar@Onechanneladmin.Com
+            </MenuItem>
+          </Select>
+        </Box>
+     
 
-      <Select fullWidth size="small" defaultValue="Partner">
-        <MenuItem value="Partner">Partner</MenuItem>
-      </Select>
+        <Box sx={{
+          borderBottom: '1px solid #0E253C1A',
+          pb: 1.5,
+        }}>
+          <Typography variant="caption" fontWeight={500} mb={0.5}>
+           Company Type
+          </Typography>
+           <Select fullWidth size="small" defaultValue="Partner">
+            <MenuItem value="Partner">Partner</MenuItem>
+          </Select>
+        </Box>
+     
+      
+        <Box sx={{
+          borderBottom: '1px solid #0E253C1A',
+          pb: 1.5,
+        }}>
+          <Typography variant="caption" fontWeight={500} mb={0.5}>
+            Industry
+          </Typography>
+            <Select fullWidth size="small" defaultValue="Accounting">
+             <MenuItem value="Accounting">Accounting</MenuItem>
+            </Select>
+        </Box>
 
-      <Select fullWidth size="small" defaultValue="Accounting">
-        <MenuItem value="Accounting">Accounting</MenuItem>
-      </Select>
+         <Box sx={{
+          borderBottom: '1px solid #0E253C1A',
+          pb: 1.5,
+        }}>
+          <Typography variant="caption" fontWeight={500} mb={0.5}>
+            Website
+          </Typography>
+            <TextField variant="outlined" fullWidth size="small" defaultValue="WWW.TRUCKGEAR.COM"  />
 
-      <TextField fullWidth size="small" defaultValue="WWW.TRUCKGEAR.COM" label="Website" />
-      <TextField fullWidth size="small" defaultValue="10" label="No. of Employee" />
+        </Box>
+
+          <Box sx={{
+          borderBottom: '1px solid #0E253C1A',
+          pb: 1.5,
+        }}>
+          <Typography variant="caption" fontWeight={500} mb={0.5}>
+            No. Of Employee
+          </Typography>
+            <TextField variant="outlined" type="number" fullWidth size="small" defaultValue="10"  />  
+        </Box>
+
+
 
       {/* Credit Limit */}
-      <TextField
-        fullWidth
-        size="small"
-        label="Credit Limit"
-        defaultValue="5000"
-        InputProps={{
-          startAdornment: <InputAdornment position="start">$</InputAdornment>,
-          endAdornment: (
-            <InputAdornment position="end">
-              <IconButton size="small" color="primary">
-                <AddIcon fontSize="small" />
-              </IconButton>
-            </InputAdornment>
-          ),
-        }}
-      />
+        <Box sx={{
+          borderBottom: '1px solid #0E253C1A',
+          pb: 1.5,
+        }}>
+          <Typography variant="caption" fontWeight={500} mb={0.5}>
+            Credit Limit
+          </Typography>
+          <TextField
+          fullWidth
+          size="small"
+          variant="outlined"
+          defaultValue="5000"
+          InputProps={{
+            startAdornment: <InputAdornment position="start">$</InputAdornment>,
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton size="small" color="primary">
+                  <AddIcon fontSize="small" />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+          sx={{
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  border: 'none', 
+                },
+              },
+            }}
+        />
+      </Box>
+      
 
       {/* Available Credit */}
-      <TextField
-        fullWidth
-        size="small"
-        label="Available Credit"
-        defaultValue="806.71"
-        InputProps={{
-          startAdornment: <InputAdornment position="start">$</InputAdornment>,
-          endAdornment: (
-            <InputAdornment position="end">
-              <IconButton size="small" color="primary">
-                <RefreshIcon fontSize="small" />
-              </IconButton>
-            </InputAdornment>
-          ),
-        }}
-      />
+
+       <Box sx={{
+          pb: 1.5,
+        }}>
+          <Typography variant="caption" fontWeight={500} mb={0.5}>
+            Available Credit
+          </Typography>
+         <TextField
+            fullWidth
+            size="small"
+            variant="outlined"
+            defaultValue="806.71"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">$</InputAdornment>
+              ),
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton size="small" color="primary">
+                    <RefreshIcon fontSize="small" />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  border: 'none', 
+                },
+              },
+            }}
+          />
+
+      </Box>
+      
     </Box>
   );
 }

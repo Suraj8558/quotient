@@ -28,8 +28,8 @@ const Sidebar = () => (
       mt: 2
     }}>
       <UserCard />
-      {/* <ActionCard /> */}
-      {/* <BusinessDetailsForm /> */}
+      <ActionCard />
+      <BusinessDetailsForm />
     </Box>
   </Drawer>
 );
