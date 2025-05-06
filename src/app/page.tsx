@@ -5,7 +5,7 @@ import RevenueChart from "@/component/charts/RevenueChart";
 import Layout from "@/component/Layout/Layout";
 import RecentOrders from "@/component/order/RecentOrders";
 import RecentTransactions from "@/component/order/RecentTransactions";
-import { Box, Typography } from "@mui/material";
+import { Box, } from "@mui/material";
 
 export default function DashboardPage() {
   return (

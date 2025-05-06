@@ -9,7 +9,7 @@ import {
   Stack,
   IconButton,
 } from "@mui/material";
-import { useState } from "react";
+import { useState, SyntheticEvent } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Image from "next/image";
@@ -55,9 +55,9 @@ const stats = [
 export default function DashboardTabs() {
   const [tabIndex, setTabIndex] = useState(0);
 
-  const handleTabChange = (_: any, newValue: number) => {
-    setTabIndex(newValue);
-  };
+ const handleTabChange = (_: SyntheticEvent, newValue: number) => {
+   setTabIndex(newValue);
+ };
 
   const scrollContainer = (dir: "left" | "right") => {
     const el = document.getElementById("scroll-container");

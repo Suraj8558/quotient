@@ -1,8 +1,7 @@
-'use client';
+"use client";
 
 import {
   Box,
-  Button,
   Card,
   CardContent,
   Typography,
@@ -12,45 +11,60 @@ import {
   Select,
   InputAdornment,
   TextField,
-} from '@mui/material';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LabelList } from 'recharts';
-import { useState } from 'react';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+} from "@mui/material";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  LabelList,
+} from "recharts";
+import { useState, SyntheticEvent } from "react";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 const data = [
-  { name: 'Jan', value: 589.12 },
-  { name: 'Feb', value: 840.2 },
-  { name: 'Mar', value: 898.0 },
-  { name: 'Apr', value: 203.0 },
-  { name: 'May', value: 400.01 },
-  { name: 'Jun', value: 920.12 },
-  { name: 'Jul', value: 398.0 },
-  { name: 'Aug', value: 882.0 },
-  { name: 'Sep', value: 390.0 },
-  { name: 'Oct', value: 910.0 },
-  { name: 'Nov', value: 410.12 },
-  { name: 'Dec', value: 840.2 },
+  { name: "Jan", value: 589.12 },
+  { name: "Feb", value: 840.2 },
+  { name: "Mar", value: 898.0 },
+  { name: "Apr", value: 203.0 },
+  { name: "May", value: 400.01 },
+  { name: "Jun", value: 920.12 },
+  { name: "Jul", value: 398.0 },
+  { name: "Aug", value: 882.0 },
+  { name: "Sep", value: 390.0 },
+  { name: "Oct", value: 910.0 },
+  { name: "Nov", value: 410.12 },
+  { name: "Dec", value: 840.2 },
 ];
 
 export default function RevenueChart() {
-  const [tab, setTab] = useState('revenue');
+  const [tab, setTab] = useState("revenue");
 
-  const handleTabChange = (_: any, newTab: string) => {
+  const handleTabChange = (_: SyntheticEvent, newTab: string) => {
     if (newTab !== null) setTab(newTab);
   };
 
   return (
     <Card sx={{ borderRadius: 4 }}>
       <CardContent>
-        <Box display="flex" justifyContent="space-between" alignItems="center" flexWrap="wrap" gap={2} mb={2}>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          flexWrap="wrap"
+          gap={2}
+          mb={2}
+        >
           <ToggleButtonGroup
             value={tab}
             exclusive
             onChange={handleTabChange}
             size="small"
             sx={{
-              '& .MuiToggleButtonGroup-grouped': {
-                borderRadius: '999px !important',
+              "& .MuiToggleButtonGroup-grouped": {
+                borderRadius: "999px !important",
                 px: 2,
               },
             }}
@@ -91,14 +105,18 @@ export default function RevenueChart() {
             <YAxis />
             <Tooltip formatter={(value: number) => `$${value.toFixed(2)}`} />
             <Bar dataKey="value" fill="#5A41FF" radius={[8, 8, 0, 0]}>
-              <LabelList dataKey="value" position="top" formatter={(value: number) => `$${value.toFixed(2)}`} />
+              <LabelList
+                dataKey="value"
+                position="top"
+                formatter={(value: number) => `$${value.toFixed(2)}`}
+              />
             </Bar>
           </BarChart>
         </ResponsiveContainer>
 
         <Box mt={2} textAlign="right">
           <Typography variant="body2" fontWeight={500}>
-            Total Revenue:{' '}
+            Total Revenue:{" "}
             <Typography component="span" fontWeight={700}>
               $89,235.89
             </Typography>

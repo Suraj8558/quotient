@@ -1,45 +1,43 @@
-'use client';
+"use client";
 
 import {
   Box,
   Typography,
-  Grid as MuiGrid,
   Select,
   MenuItem,
   FormControl,
-  InputLabel,
   Card,
   CardContent,
-} from '@mui/material';
-import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import NewReleasesIcon from '@mui/icons-material/NewReleases';
-import PendingIcon from '@mui/icons-material/Pending';
-import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import DoneAllIcon from '@mui/icons-material/DoneAll';
-import CancelIcon from '@mui/icons-material/Cancel';
-import { useState } from 'react';
+} from "@mui/material";
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import NewReleasesIcon from "@mui/icons-material/NewReleases";
+import PendingIcon from "@mui/icons-material/Pending";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import DoneAllIcon from "@mui/icons-material/DoneAll";
+import CancelIcon from "@mui/icons-material/Cancel";
+import { useState } from "react";
 
 const statusData = [
-  { label: 'All', value: 50, icon: <DashboardIcon /> },
-  { label: 'New', value: 50, icon: <NewReleasesIcon /> },
-  { label: 'Pending', value: 50, icon: <PendingIcon /> },
-  { label: 'Dispatched', value: 50, icon: <LocalShippingIcon /> },
-  { label: 'Delivered', value: 123, icon: <DoneAllIcon /> },
-  { label: 'Cancelled', value: 50, icon: <CancelIcon /> },
+  { label: "All", value: 50, icon: <DashboardIcon /> },
+  { label: "New", value: 50, icon: <NewReleasesIcon /> },
+  { label: "Pending", value: 50, icon: <PendingIcon /> },
+  { label: "Dispatched", value: 50, icon: <LocalShippingIcon /> },
+  { label: "Delivered", value: 123, icon: <DoneAllIcon /> },
+  { label: "Cancelled", value: 50, icon: <CancelIcon /> },
 ];
 
 const pieData = [
-  { name: 'New', value: 50, color: '#f87171' },
-  { name: 'Pending', value: 50, color: '#60a5fa' },
-  { name: 'Dispatched', value: 50, color: '#a78bfa' },
-  { name: 'Delivered', value: 50, color: '#4ade80' },
-  { name: 'Cancelled', value: 50, color: '#facc15' },
+  { name: "New", value: 50, color: "#f87171" },
+  { name: "Pending", value: 50, color: "#60a5fa" },
+  { name: "Dispatched", value: 50, color: "#a78bfa" },
+  { name: "Delivered", value: 50, color: "#4ade80" },
+  { name: "Cancelled", value: 50, color: "#facc15" },
 ];
 
 export default function OrderStatusChart() {
-  const [category, setCategory] = useState('All Categories');
-  const [year, setYear] = useState('2023');
+  const [category, setCategory] = useState("All Categories");
+  const [year, setYear] = useState("2023");
 
   const total = pieData.reduce((acc, cur) => acc + cur.value, 0);
 
