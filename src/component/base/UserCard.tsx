@@ -12,8 +12,8 @@ export default function UserCard() {
         backgroundColor: 'background.paper',
         padding: 2,
         borderRadius: '16px',
-        boxShadow: '0 1px 4px rgba(0, 0, 0, 0.1)',
         maxWidth: 390,
+        border: '1px solid #0E253C1A',
         mb: 2,
       }}
     >
@@ -65,7 +65,6 @@ export default function UserCard() {
         </Typography>
       </Box>
 
-      {/* Name, Chip, Email */}
       <Box sx={{ flexGrow: 1 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <Typography sx={{ fontWeight: 600 }}>Truck Grear</Typography>
@@ -88,7 +87,6 @@ export default function UserCard() {
         </Typography>
       </Box>
 
-      {/* Change Status Link */}
       <Link
         href="#"
         underline="hover"
