@@ -65,7 +65,12 @@ const transactions = [
 
 export default function RecentTransactions() {
   return (
-    <Card sx={{ borderRadius: 4 }}>
+    <Card sx={{ borderRadius: 4,
+
+       border: "1px solid #0E253C1A",
+        maxHeight: 416,
+        overflowY: "hidden",
+    }}>
       <CardContent>
         <Typography variant="h6" fontWeight={600} mb={2}>
           Recent Transactions

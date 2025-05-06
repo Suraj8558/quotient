@@ -44,9 +44,20 @@ export default function OrderStatusChart() {
   const total = pieData.reduce((acc, cur) => acc + cur.value, 0);
 
   return (
-    <Card sx={{ p: 2, borderRadius: 4 }}>
+    <Card
+      sx={{
+        p: 2,
+        borderRadius: 4,
+        backgroundColor: "background.default",
+      }}
+    >
       <CardContent>
-        <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          mb={2}
+        >
           <Typography variant="h6" fontWeight="600">
             Order Status
           </Typography>
@@ -75,9 +86,15 @@ export default function OrderStatusChart() {
           </Box>
         </Box>
 
-        <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
+        <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0 }}>
           <Box>
-            <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 2 }}>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "repeat(2, 1fr)",
+                gap: 0,
+              }}
+            >
               {statusData.map((item, idx) => (
                 <Box
                   key={idx}
@@ -85,8 +102,15 @@ export default function OrderStatusChart() {
                   alignItems="center"
                   gap={1}
                   sx={{
-                    borderBottom: idx % 2 === 0 ? '1px solid #eee' : 'none',
+                    borderBottom:
+                      idx === statusData?.length - 1 ||
+                      idx === statusData?.length - 2
+                        ? "none"
+                        : "1px solid #eee",
+                    borderRight: idx % 2 === 0 ? "1px solid #eee" : "none",
                     pb: 1,
+                    py: 4,
+                    px: 2.5,
                   }}
                 >
                   <Box color="primary.main">{item.icon}</Box>

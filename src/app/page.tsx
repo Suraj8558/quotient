@@ -12,7 +12,7 @@ export default function DashboardPage() {
     <Layout>
       <Box
         sx={{
-          border: '1px solid #0E253C1A',
+          border: "1px solid #0E253C1A",
           borderTop: "none",
           px: 2,
           mt: 2,
@@ -35,6 +35,7 @@ export default function DashboardPage() {
             display: "grid",
             gridTemplateColumns: "repeat(2, 1fr)",
             gap: 2,
+            mb: 2,
           }}
         >
           <RecentOrders />
@@ -46,6 +47,7 @@ export default function DashboardPage() {
             display: "grid",
             gridTemplateColumns: "repeat(2, 1fr)",
             gap: 2,
+            mb: 2,
           }}
         >
           <RevenueChart />
