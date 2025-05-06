@@ -9,7 +9,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
     <Header />
      <Box component="nav" sx={{ flexGrow: 1, pt: 15,}}>  <Sidebar /></Box>
    
-    <Box component="main" sx={{ flexGrow: 1, pt: 15 }}>
+    <Box component="main" sx={{ flexGrow: 1, pt: 16.25 }}>
       {children}
     </Box>
   </Box>
