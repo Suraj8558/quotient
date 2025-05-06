@@ -123,7 +123,7 @@ export default function OrderStatusChart() {
             </Box>
           </Box>
 
-          <Box>
+          {/* <Box>
             <ResponsiveContainer width="100%" height={200}>
               <PieChart>
                 <Pie
@@ -144,7 +144,7 @@ export default function OrderStatusChart() {
                 {total}
               </Typography>
             </Box>
-          </Box>
+          </Box> */}
         </Box>
       </CardContent>
     </Card>
