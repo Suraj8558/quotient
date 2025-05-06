@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Box,
@@ -6,66 +6,67 @@ import {
   Tab,
   Typography,
   Card,
-  CardContent,
   Stack,
   IconButton,
-} from '@mui/material';
-import { useState } from 'react';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+} from "@mui/material";
+import { useState, SyntheticEvent } from "react";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import Image from "next/image";
 
 const stats = [
   {
-    title: 'Total Orders',
-    value: '123',
-    change: '+28%',
+    title: "Total Orders",
+    value: "123",
+    change: "+28%",
     positive: true,
-    icon: '📦',
+    icon: "/icon1.svg",
   },
   {
-    title: 'Total Taken',
-    value: '123',
-    change: '-15%',
+    title: "Total Taken",
+    value: "123",
+    change: "-15%",
     positive: false,
-    icon: '👤',
+    icon: "/icon2.svg",
   },
   {
-    title: 'Total Revenue',
-    value: '123',
-    change: '+28%',
+    title: "Total Revenue",
+    value: "123",
+    change: "+28%",
     positive: true,
-    icon: '💰',
+    icon: "/icon3.svg",
   },
   {
-    title: 'Pending Orders',
-    value: '$1234.99',
-    change: '-28%',
+    title: "Pending Orders",
+    value: "$1234.99",
+    change: "-28%",
     positive: false,
-    icon: '⏳',
+    icon: "/icon4.svg",
   },
   {
-    title: 'Pending Returns',
-    value: '$1234.99',
-    change: '-28%',
+    title: "Pending Returns",
+    value: "$1234.99",
+    change: "-28%",
     positive: false,
-    icon: '↩️',
+    icon: "/icon5.svg",
   },
 ];
 
 export default function DashboardTabs() {
   const [tabIndex, setTabIndex] = useState(0);
 
-  const handleTabChange = (_: any, newValue: number) => {
-    setTabIndex(newValue);
-  };
+ const handleTabChange = (_: SyntheticEvent, newValue: number) => {
+   setTabIndex(newValue);
+ };
 
-  const scrollContainer = (dir: 'left' | 'right') => {
-    const el = document.getElementById('scroll-container');
-    if (el) el.scrollBy({ left: dir === 'right' ? 300 : -300, behavior: 'smooth' });
+  const scrollContainer = (dir: "left" | "right") => {
+    const el = document.getElementById("scroll-container");
+    if (el)
+      el.scrollBy({ left: dir === "right" ? 300 : -300, behavior: "smooth" });
   };
 
   return (
-    <Box sx={{ p: 2 }}>
+    <Box>
       <Tabs
         value={tabIndex}
         onChange={handleTabChange}
@@ -73,26 +74,46 @@ export default function DashboardTabs() {
         scrollButtons="auto"
         sx={{ mb: 2 }}
       >
-        {['Dashboard', 'Orders', 'Address', 'Notes', 'Tasks', 'Contacts', 'Credit History'].map(
-          (label, index) => (
-            <Tab
-              key={label}
-              label={label}
-              sx={{
-                textTransform: 'none',
-                fontWeight: tabIndex === index ? 600 : 400,
-              }}
-            />
-          )
-        )}
+        {[
+          "Dashboard",
+          "Orders",
+          "Address",
+          "Notes",
+          "Tasks",
+          "Contacts",
+          "Credit History",
+        ].map((label, index) => (
+          <Tab
+            key={label}
+            label={label}
+            sx={{
+              textTransform: "none",
+              fontWeight: tabIndex === index ? 600 : 400,
+            }}
+          />
+        ))}
       </Tabs>
 
       <Box position="relative">
         <IconButton
-          onClick={() => scrollContainer('left')}
-          sx={{ position: 'absolute', left: -20, top: '40%', zIndex: 1 }}
+          onClick={() => scrollContainer("left")}
+          sx={{
+            position: "absolute",
+            left: -10,
+            top: "40%",
+            zIndex: 1,
+            backgroundColor: "background.paper",
+            boxShadow: "0px 3px 6px 0px #0000001A",
+            width: 24,
+            height: 24,
+          }}
         >
-          <ArrowBackIosNewIcon />
+          <ArrowBackIosNewIcon
+            sx={{
+              fontSize: 16,
+              color: "primary.main",
+            }}
+          />
         </IconButton>
 
         <Stack
@@ -100,9 +121,9 @@ export default function DashboardTabs() {
           direction="row"
           spacing={2}
           sx={{
-            overflowX: 'auto',
+            overflowX: "auto",
             pb: 1,
-            scrollBehavior: 'smooth',
+            scrollBehavior: "smooth",
             // '&::-webkit-scrollbar': { display: 'none' },
           }}
         >
@@ -111,58 +132,105 @@ export default function DashboardTabs() {
               key={index}
               sx={{
                 minWidth: 200,
-                p: 2,
-                borderRadius: 3,
-                boxShadow: '0 1px 5px rgba(0,0,0,0.1)',
-                flexShrink: 0,
+                borderRadius: 4,
+                flexGrow: 1,
+                backgroundColor: "background.default",
+                border: "1px solid #0E253C1A",
               }}
             >
-              <CardContent>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 2,
+                  width: 1,
+                  borderBottom: "1px solid #0E253C1A",
+                }}
+              >
                 <Box
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="space-between"
-                  mb={1}
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "pace-between",
+                    py: 2,
+                    px: 2.5,
+                  }}
                 >
-                  <Box
-                    sx={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: '50%',
-                      fontSize: 24,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      background: 'linear-gradient(to bottom right, #ff80ab, #8c9eff)',
-                    }}
-                  >
-                    {stat.icon}
+                  <Box>
+                    <Image
+                      src={stat?.icon}
+                      alt="Company Logo"
+                      width={54}
+                      height={54}
+                      style={{ objectFit: "contain" }}
+                    />
                   </Box>
                 </Box>
 
-                <Typography variant="subtitle2" fontWeight={600}>
-                  {stat.title}
-                </Typography>
-                <Typography variant="h6">{stat.value}</Typography>
+                <Box>
+                  <Typography variant="caption" fontWeight={600}>
+                    {stat.title}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: 22,
+                      lineHeight: "32px",
+                      fontWeight: 600,
+                    }}
+                  >
+                    {stat.value}
+                  </Typography>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: 2,
+                  backgroundColor: "background.paper",
+                  py: 1.5,
+                  px: 2.5,
+                  
+                }}
+              >
                 <Typography
                   variant="caption"
-                  color={stat.positive ? 'green' : 'error'}
+                  color={stat.positive ? "green" : "error"}
                 >
-                  {stat.positive ? '▲' : '▼'} {stat.change}
+                  {stat.positive ? "▲" : "▼"} {stat.change}
                 </Typography>
-                <Typography variant="caption" color="text.secondary" display="block">
+                <Typography
+                  variant="caption"
+                  color="text.secondary"
+                  display="block"
+                >
                   From The Last Month
                 </Typography>
-              </CardContent>
+              </Box>
             </Card>
           ))}
         </Stack>
 
         <IconButton
-          onClick={() => scrollContainer('right')}
-          sx={{ position: 'absolute', right: -20, top: '40%', zIndex: 1 }}
+          onClick={() => scrollContainer("right")}
+          sx={{
+            position: "absolute",
+            right: -10,
+            top: "40%",
+            zIndex: 1,
+            backgroundColor: "background.paper",
+            boxShadow: "0px 3px 6px 0px #0000001A",
+            width: 24,
+            height: 24,
+          }}
         >
-          <ArrowForwardIosIcon />
+          <ArrowForwardIosIcon
+            sx={{
+              fontSize: 16,
+              color: "primary.main",
+            }}
+          />
         </IconButton>
       </Box>
     </Box>

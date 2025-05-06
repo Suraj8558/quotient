@@ -1,4 +1,3 @@
-// components/NotificationMenu.tsx
 import React, { useState } from "react";
 import {
   Box,
@@ -6,7 +5,6 @@ import {
   Menu,
   MenuItem,
   Typography,
-  Badge,
   Divider,
   ListItemText,
 } from "@mui/material";
@@ -33,10 +31,7 @@ const NotificationMenu = () => {
 
   return (
     <Box>
-      <IconButton onClick={handleOpen} sx={{ p: 0}}>
-        {/* currently hide badge */}
-        {/* <Badge badgeContent={notifications.length} color="error">
-        </Badge> */}  
+      <IconButton onClick={handleOpen} sx={{ p: 0}}> 
           <Image
             src="/Notification.svg"
             alt="Notifications"

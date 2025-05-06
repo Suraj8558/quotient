@@ -21,6 +21,9 @@ const lightTheme = {
     secondary: '#0E253CD9',
     white: '#FFFFFF',
     black: '#000000'
+  },
+  border: {
+    primary: '#0E253C1A'
   }
 
 };
@@ -91,8 +94,13 @@ export const getTheme = (mode: "light" | "dark") =>
               fontSize: 14,
               lineHeight: '22px',
               color: mode === 'light' ? '#0E253C' : '#ffffff',
-            }
+            },
+            input: {
+              padding: '8px 12px',
+            },
           },
+          
+          
         },
       },
       MuiCard: {

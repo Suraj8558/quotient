@@ -80,7 +80,10 @@ const getInitials = (name: string) => {
 
 export default function RecentActivities() {
   return (
-    <Card sx={{ borderRadius: 4 }}>
+    <Card sx={{ borderRadius: 4 ,
+        backgroundColor: "background.default",
+        border: "1px solid #0E253C1A",
+    }}>
       <CardContent>
         <Box display="flex" justifyContent="space-between" mb={2}>
           <Typography fontWeight={600}>Recent Activities</Typography>
